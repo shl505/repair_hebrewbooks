@@ -2,7 +2,7 @@ import pywikibot
 
 #הגדרת פונקציה
 def get_page_text(page_title):
-    site = pywikibot.Site(url="hamichlol.org.il") # הגדרת המכלול
+    site = pywikibot.Site(url="https://www.hamichlol.org.il/") # הגדרת המכלול
     page = pywikibot.Page(site, title=page_title) #קבלת הדף
     return page.text
 

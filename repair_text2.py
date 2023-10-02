@@ -1,3 +1,4 @@
+from get_source_pages import get_page_text
 strings = ["[http://www.hebrewbooks.org/", "[http://hebrewbooks.org/" ]
 string_repair = "{{היברובוקס||"
 
@@ -76,12 +77,6 @@ def repair_text(repaired_text: str, strings: list):
 
 
 
-
-string = """
-[http://www.hebrewbooks.org/pdfpager.aspx?req=14955&hilite=3d965611-6cd7-4a4c-9d44-25399bc3a7ec&st=קבלת+הדם&pgnum=68 עמ' 55].}} 
-
-[http://www.hebrewbooks.org/pdfpager.aspx?req=14929&st=&pgnum=281&hilite= עמוד 271]
-"""
+page_title = input("הכנס את שם הערך כאן: ")
+string = get_page_text(page_title)
 print(repair_text(string, strings))
-
-
