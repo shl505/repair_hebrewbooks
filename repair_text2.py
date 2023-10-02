@@ -111,11 +111,11 @@ def repair_text(repaired_text: str, strings: list):
 
 
 
-#page_title = input("הכנס את שם הערך כאן: ")
+page_title = input("הכנס את שם הערך כאן: ")
 
-#string = get_page_text
+string = get_page_text(page_title)
 
-string = "[http://hebrewbooks.org/pdfpager.aspx?sits=1&req=8962&pgnum=365 מלאכת מכבה]"
+#string = """""" ע
 
 print()
 print("------")
