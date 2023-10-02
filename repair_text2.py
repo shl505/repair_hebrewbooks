@@ -78,5 +78,12 @@ def repair_text(repaired_text: str, strings: list):
 
 
 page_title = input("הכנס את שם הערך כאן: ")
+
 string = get_page_text(page_title)
+
+print()
+print("------")
+print()
 print(repair_text(string, strings))
+print()
+print("------")
