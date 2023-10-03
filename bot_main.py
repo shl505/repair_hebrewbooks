@@ -29,8 +29,8 @@ for result in results:
             title = link['title']
 
             # Connect to Wikipedia using pywikibot
-            site = pywikibot.Site("www.hamichlol.org.il")
-            site.login(username='שלוימי', password='AnotherPassword')
+            site = pywikibot.Site(url="https://www.hamichlol.org.il/")
+            pywikibot.login(site, 'שלוימי', 'סיסמתך')
             strings = ["[http://www.hebrewbooks.org/", "[http://hebrewbooks.org/"]
             # Loop through each page title
             for i in title:
