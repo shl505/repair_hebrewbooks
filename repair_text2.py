@@ -1,10 +1,10 @@
 from get_source_pages import get_page_text
-strings = ["[http://www.hebrewbooks.org/", "[http://hebrewbooks.org/" ]
-string_repair = "{{היברובוקס||"
 
+strings = ["[http://www.hebrewbooks.org/", "[http://hebrewbooks.org/" ]
 
 def repair_text(repaired_text: str, strings: list):
     for string in strings:
+        string_repair = "{{היברובוקס||"
         if string and repaired_text.find(string) >= 0:
             number = repaired_text.count(string)
 
@@ -178,17 +178,18 @@ def repair_text(repaired_text: str, strings: list):
                         if list_descript_book[0].count("[") == 0:
                             repaired_text = list1[0] + string_repair + list_descript_book[0] + "|" + parts2[0] + "||ללא}}" + list_descript_book[1]
 
+    if not "{{ללא בוט}}" in parts:
+        return repaired_text
+    else:
+        return parts
 
-    return repaired_text
 
 
+page_title = input("הכנס את שם הערך כאן: ")
 
+string = get_page_text(page_title)
 
-#page_title = input("הכנס את שם הערך כאן: ")
-
-#string = get_page_text(page_title)
-
-string = """[http://www.hebrewbooks.org/pdfpager.aspx?sits=1&req=20409&st=%u05e7%u05de%u05d9%u05e0%u05e6%u05e7%u05d9 יונמחמךל]"""
+#string = """[http://www.hebrewbooks.org/pdfpager.aspx?sits=1&req=20409&st=%u05e7%u05de%u05d9%u05e0%u05e6%u05e7%u05d9 יונמחמךל]"""
 
 print()
 print("------")
