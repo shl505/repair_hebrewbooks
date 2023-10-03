@@ -155,17 +155,23 @@ def repair_text(repaired_text: str, strings: list):
                             repaired_text = repair_sits[0] + string_repair + caption[0] + "|" + name[0] + "||ללא}}" + caption[1]
 
                 elif "[http://www.hebrewbooks.org/" in parts:
-                    list1 = parts.split("[http://www.hebrewbooks.org/", 1)
-                    parts2 = list1[1].split(" ", 1)
-                    list_descript_book = parts2[1].split("]", 1)
-                    if list_descript_book[0].count("[") == 0:
-                        repaired_text = list1[0] + string_repair + list_descript_book[0] + "|" + parts2[0] + "||ללא}}" + list_descript_book[1]
+                    if "http://www.hebrewbooks.org/rambam" or "http://www.hebrewbooks.org/root" or "http://www.hebrewbooks.org/shas" in parts:
+                        pass
+                    else:
+                        list1 = parts.split("[http://www.hebrewbooks.org/", 1)
+                        parts2 = list1[1].split(" ", 1)
+                        list_descript_book = parts2[1].split("]", 1)
+                        if list_descript_book[0].count("[") == 0:
+                            repaired_text = list1[0] + string_repair + list_descript_book[0] + "|" + parts2[0] + "||ללא}}" + list_descript_book[1]
                 elif "[http://hebrewbooks.org/" in parts:
-                    list1 = parts.split("[http://hebrewbooks.org/", 1)
-                    parts2 = list1[1].split(" ", 1)
-                    list_descript_book = parts2[1].split("]", 1)
-                    if list_descript_book[0].count("[") == 0:
-                        repaired_text = list1[0] + string_repair + list_descript_book[0] + "|" + parts2[0] + "||ללא}}" + list_descript_book[1]
+                    if "http://hebrewbooks.org/rambam" or "http://hebrewbooks.org/root" or "http://hebrewbooks.org/shas" in parts:
+                        pass
+                    else:
+                        list1 = parts.split("[http://hebrewbooks.org/", 1)
+                        parts2 = list1[1].split(" ", 1)
+                        list_descript_book = parts2[1].split("]", 1)
+                        if list_descript_book[0].count("[") == 0:
+                            repaired_text = list1[0] + string_repair + list_descript_book[0] + "|" + parts2[0] + "||ללא}}" + list_descript_book[1]
 
 
     return repaired_text
