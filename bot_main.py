@@ -27,10 +27,24 @@ for result in results:
         if link:
             # השגת הערך של ה-`title`
             title = link['title']
+
+            # Connect to Wikipedia using pywikibot
+            site = pywikibot.Site("www.hamichlol.org.il")
+            site.login(username='שלוימי', password='AnotherPassword')
+            strings = ["[http://www.hebrewbooks.org/", "[http://hebrewbooks.org/"]
+            # Loop through each page title
             for i in title:
-                site = pywikibot.Site("www.hamichlol.org.il")
+                # Get the Wikipedia page object
                 page = pywikibot.Page(site, i)
-                strings = ["[http://www.hebrewbooks.org/", "[http://hebrewbooks.org/"]
-                page.text = repair_text(i, strings)
-                text = page.text
-                page.save("המרת קישורי היברובוקס לתבנית")
+                page_text = page.text
+
+                # Perform your edits, add new text, etc.
+                # For example, adding a new line at the end of the page
+                new_text = page_text + repair_text(i ,strings)
+
+                # Save the updated page
+                page.text = new_text
+                page.save("המרת קישורי היברובוקס לתבניות")
+
+            # Disconnect from Wikipedia
+            site.logout()
