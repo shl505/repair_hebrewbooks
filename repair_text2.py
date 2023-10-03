@@ -27,70 +27,132 @@ def repair_text(repaired_text: str, strings: list):
                 elif "pdfpager.aspx" in parts:
                     if "[http://www.hebrewbooks.org/pdfpager.aspx?req=" in parts:
                         repair_pdfpager = parts.split("[http://www.hebrewbooks.org/pdfpager.aspx?req=", 1)
-                        repair_page = repair_pdfpager[1].split("&pgnum=", 1)  # חיתוך לפני מיקום מספר העמוד
-                        name = repair_page[1].split(" ", 1)
-                        caption = name[1].split("]", 1)
-                        if "&st=" in repair_page[0]:
-                            repair_st = repair_page[0].split("&st=", 1)
-                            if "&hilite=" in repair_st [0]:
-                                repair_hilite = repair_st [0].split("&hilite=", 1)
-                                repair_page[0] = repair_hilite[0]
-                            else:
-                                repair_page[0] = repair_st[0]
-                        if "&hilite=" in name[0]:
-                            repair_hilite = name[0].split("&hilite=", 1)
-                            name[0] = repair_hilite[0]
-                        repaired_text = repair_pdfpager[0] + string_repair + caption[0] + "|" + repair_page[0] + "||ללא|עמוד=" + name[0] + "}}" + caption[1]
+                        if "&pgnum=" in repair_pdfpager[1]:
+                            repair_page = repair_pdfpager[1].split("&pgnum=", 1)  # חיתוך לפני מיקום מספר העמוד
+                            name = repair_page[1].split(" ", 1)
+                            caption = name[1].split("]", 1)
+                            if "&st=" in repair_page[0]:
+                                repair_st = repair_page[0].split("&st=", 1)
+                                if "&hilite=" in repair_st[0]:
+                                    repair_hilite = repair_st[0].split("&hilite=", 1)
+                                    repair_page[0] = repair_hilite[0]
+                                else:
+                                    repair_page[0] = repair_st[0]
+                            if "&hilite=" in name[0]:
+                                repair_hilite = name[0].split("&hilite=", 1)
+                                name[0] = repair_hilite[0]
+                            repaired_text = repair_pdfpager[0] + string_repair + caption[0] + "|" + repair_page[0] + "||ללא|עמוד=" + name[0] + "}}" + caption[1]
+                        else:
+                            name = repair_pdfpager[1].split(" ", 1)
+                            caption = name[1].split("]", 1)
+                            if "&st=" in name[0]:
+                                repair_st = name[0].split("&st=", 1)
+                                if "&hilite=" in repair_st[0]:
+                                    repair_hilite = repair_st[0].split("&hilite=", 1)
+                                    name[0] = repair_hilite[0]
+                                else:
+                                    name[0] = repair_st[0]
+                            if "&hilite=" in name[0]:
+                                repair_hilite = name[0].split("&hilite=", 1)
+                                name[0] = repair_hilite[0]
+                            repaired_text = repair_pdfpager[0] + string_repair + caption[0] + "|" + name[0] + "||ללא}}" + caption[1]
                     elif "[http://hebrewbooks.org/pdfpager.aspx?req=" in parts:
                         repair_pdfpager = parts.split("[http://hebrewbooks.org/pdfpager.aspx?req=", 1)
-                        repair_page = repair_pdfpager[1].split("&pgnum=", 1)  # חיתוך לפני מיקום מספר העמוד
-                        name = repair_page[1].split(" ", 1)
-                        caption = name[1].split("]", 1)
-                        if "&st=" in repair_page[0]:
-                            repair_st = repair_page[0].split("&st=", 1)
-                            if "&hilite=" in repair_st[0]:
-                                repair_hilite = repair_st[0].split("&hilite=", 1)
-                                repair_page[0] = repair_hilite[0]
-                            else:
-                                repair_page[0] = repair_st[0]
-                        if "&hilite=" in name[0]:
-                            repair_hilite = name[0].split("&hilite=", 1)
-                            name[0] = repair_hilite[0]
-                        repaired_text = repair_pdfpager[0] + string_repair + caption[0] + "|" + repair_page[0] + "||ללא|עמוד=" + name[0] + "}}" + caption[1]
+                        if "&pgnum=" in repair_pdfpager[1]:
+                            repair_page = repair_pdfpager[1].split("&pgnum=", 1)  # חיתוך לפני מיקום מספר העמוד
+                            name = repair_page[1].split(" ", 1)
+                            caption = name[1].split("]", 1)
+                            if "&st=" in repair_page[0]:
+                                repair_st = repair_page[0].split("&st=", 1)
+                                if "&hilite=" in repair_st[0]:
+                                    repair_hilite = repair_st[0].split("&hilite=", 1)
+                                    repair_page[0] = repair_hilite[0]
+                                else:
+                                    repair_page[0] = repair_st[0]
+                            if "&hilite=" in name[0]:
+                                repair_hilite = name[0].split("&hilite=", 1)
+                                name[0] = repair_hilite[0]
+                            repaired_text = repair_pdfpager[0] + string_repair + caption[0] + "|" + repair_page[0] + "||ללא|עמוד=" + name[0] + "}}" + caption[1]
+                        else:
+                            name = repair_pdfpager[1].split(" ", 1)
+                            caption = name[1].split("]", 1)
+                            if "&st=" in name[0]:
+                                repair_st = name[0].split("&st=", 1)
+                                if "&hilite=" in repair_st[0]:
+                                    repair_hilite = repair_st[0].split("&hilite=", 1)
+                                    name[0] = repair_hilite[0]
+                                else:
+                                    name[0] = repair_st[0]
+                            if "&hilite=" in name[0]:
+                                repair_hilite = name[0].split("&hilite=", 1)
+                                name[0] = repair_hilite[0]
+                            repaired_text = repair_pdfpager[0] + string_repair + caption[0] + "|" + name[0] + "||ללא}}" + caption[1]
                     elif "[http://hebrewbooks.org/pdfpager.aspx?sits" in parts:
                         repair_sits = parts.split("[http://hebrewbooks.org/pdfpager.aspx?sits", 1)
                         repair_pdfpager = repair_sits[1].split("&req=", 1)
-                        repair_page = repair_pdfpager[1].split("&pgnum=", 1)  # חיתוך לפני מיקום מספר העמוד
-                        name = repair_page[1].split(" ", 1)
-                        caption = name[1].split("]", 1)
-                        if "&st=" in repair_page[0]:
-                            repair_st = repair_page[0].split("&st=", 1)
-                            if "&hilite=" in repair_st[0]:
-                                repair_hilite = repair_st[0].split("&hilite=", 1)
-                                repair_page[0] = repair_hilite[0]
-                            else:
-                                repair_page[0] = repair_st[0]
-                        if "&hilite=" in name[0]:
-                            repair_hilite = name[0].split("&hilite=", 1)
-                            name[0] = repair_hilite[0]
-                        repaired_text = repair_sits[0] + string_repair + caption[0] + "|" + repair_page[0] + "||ללא|עמוד=" + name[0] + "}}" + caption[1]
+                        if "&pgnum=" in repair_pdfpager[1]:
+                            repair_page = repair_pdfpager[1].split("&pgnum=", 1)  # חיתוך לפני מיקום מספר העמוד
+                            name = repair_page[1].split(" ", 1)
+                            caption = name[1].split("]", 1)
+                            if "&st=" in repair_page[0]:
+                                repair_st = repair_page[0].split("&st=", 1)
+                                if "&hilite=" in repair_st[0]:
+                                    repair_hilite = repair_st[0].split("&hilite=", 1)
+                                    repair_page[0] = repair_hilite[0]
+                                else:
+                                    repair_page[0] = repair_st[0]
+                            if "&hilite=" in name[0]:
+                                repair_hilite = name[0].split("&hilite=", 1)
+                                name[0] = repair_hilite[0]
+                            repaired_text = repair_sits[0] + string_repair + caption[0] + "|" + repair_page[0] + "||ללא|עמוד=" + name[0] + "}}" + caption[1]
+                        else:
+                            name = repair_pdfpager[1].split(" ", 1)
+                            caption = name[1].split("]", 1)
+                            if "&st=" in name[0]:
+                                repair_st = name[0].split("&st=", 1)
+                                if "&hilite=" in repair_st[0]:
+                                    repair_hilite = repair_st[0].split("&hilite=", 1)
+                                    name[0] = repair_hilite[0]
+                                else:
+                                    name[0] = repair_st[0]
+                            if "&hilite=" in name[0]:
+                                repair_hilite = name[0].split("&hilite=", 1)
+                                name[0] = repair_hilite[0]
+                            repaired_text = repair_sits[0] + string_repair + caption[0] + "|" + name[0] + "||ללא}}" + caption[1]
+
                     elif "[http://www.hebrewbooks.org/pdfpager.aspx?sits" in parts:
                         repair_sits = parts.split("[http://www.hebrewbooks.org/pdfpager.aspx?sits", 1)
                         repair_pdfpager = repair_sits[1].split("&req=", 1)
-                        repair_page = repair_pdfpager[1].split("&pgnum=", 1)  # חיתוך לפני מיקום מספר העמוד
-                        name = repair_page[1].split(" ", 1)
-                        caption = name[1].split("]", 1)
-                        if "&st=" in repair_page[0]:
-                            repair_st = repair_page[0].split("&st=", 1)
-                            if "&hilite=" in repair_st[0]:
-                                repair_hilite = repair_st[0].split("&hilite=", 1)
-                                repair_page[0] = repair_hilite[0]
-                            else:
-                                repair_page[0] = repair_st[0]
-                        if "&hilite=" in name[0]:
-                            repair_hilite = name[0].split("&hilite=", 1)
-                            name[0] = repair_hilite[0]
-                        repaired_text = repair_sits[0] + string_repair + caption[0] + "|" + repair_page[0] + "||ללא|עמוד=" + name[0] + "}}" + caption[1]
+                        if "&pgnum=" in repair_pdfpager[1]:
+                            repair_page = repair_pdfpager[1].split("&pgnum=", 1)  # חיתוך לפני מיקום מספר העמוד
+                            name = repair_page[1].split(" ", 1)
+                            caption = name[1].split("]", 1)
+                            if "&st=" in repair_page[0]:
+                                repair_st = repair_page[0].split("&st=", 1)
+                                if "&hilite=" in repair_st[0]:
+                                    repair_hilite = repair_st[0].split("&hilite=", 1)
+                                    repair_page[0] = repair_hilite[0]
+                                else:
+                                    repair_page[0] = repair_st[0]
+                            if "&hilite=" in name[0]:
+                                repair_hilite = name[0].split("&hilite=", 1)
+                                name[0] = repair_hilite[0]
+                            repaired_text = repair_sits[0] + string_repair + caption[0] + "|" + repair_page[
+                                0] + "||ללא|עמוד=" + name[0] + "}}" + caption[1]
+                        else:
+                            name = repair_pdfpager[1].split(" ", 1)
+                            caption = name[1].split("]", 1)
+                            if "&st=" in name[0]:
+                                repair_st = name[0].split("&st=", 1)
+                                if "&hilite=" in repair_st[0]:
+                                    repair_hilite = repair_st[0].split("&hilite=", 1)
+                                    name[0] = repair_hilite[0]
+                                else:
+                                    name[0] = repair_st[0]
+                            if "&hilite=" in name[0]:
+                                repair_hilite = name[0].split("&hilite=", 1)
+                                name[0] = repair_hilite[0]
+                            repaired_text = repair_sits[0] + string_repair + caption[0] + "|" + name[0] + "||ללא}}" + caption[1]
 
                 elif "[http://www.hebrewbooks.org/" in parts:
                     list1 = parts.split("[http://www.hebrewbooks.org/", 1)
@@ -115,7 +177,7 @@ page_title = input("הכנס את שם הערך כאן: ")
 
 string = get_page_text(page_title)
 
-#string = """""" ע
+#string = """[http://www.hebrewbooks.org/pdfpager.aspx?sits=1&req=20409&st=%u05e7%u05de%u05d9%u05e0%u05e6%u05e7%u05d9 ההערכה וההשתוקקות לביאורי הגר"א בדורות האחרונים]"""
 
 print()
 print("------")
