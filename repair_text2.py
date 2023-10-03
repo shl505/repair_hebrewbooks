@@ -188,7 +188,7 @@ def repair_text(repaired_text: str, strings: list):
 
 #string = get_page_text(page_title)
 
-string = """[http://www.hebrewbooks.org/pdfpager.aspx?sits=1&req=20409&st=%u05e7%u05de%u05d9%u05e0%u05e6%u05e7%u05d9 יונינמחלמךל]"""
+string = """[http://www.hebrewbooks.org/pdfpager.aspx?sits=1&req=20409&st=%u05e7%u05de%u05d9%u05e0%u05e6%u05e7%u05d9 יוננמחלמךל]"""
 
 print()
 print("------")
