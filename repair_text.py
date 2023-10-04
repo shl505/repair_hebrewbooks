@@ -1,6 +1,7 @@
 from get_source_pages import get_page_text
 
 def repair_text(repaired_text: str):
+    """פונקציה שמקבלת קוד מקור של דף באתר המכלול וחזירה אותו לאחר שהמירה קישורים לאתר היברובוקס לתבניות קישורים"""
     #הגדרת משתנה שמכיל את הטקסט המקורי
     parts = repaired_text
     #הגדרת משתנה מטיפוס רשימה שמכיל את ראשי הקישורים
@@ -117,15 +118,15 @@ def repair_text(repaired_text: str):
 
 
 
-page_title = input("הכנס את שם הערך כאן: ")
+#page_title = input("הכנס את שם הערך כאן: ")
 
-string = get_page_text(page_title)
+#string = get_page_text(page_title)
 
 #string = """[http://www.hebrewbooks.org/pdfpager.aspx?sits=1&req=20409&st=%u05e7%u05de%u05d9%u05e0%u05e6%u05e7%u05d9 יונמחמךל]"""
 
 #print()
 #print("------")
 #print()
-print(repair_text(string))
+#print(repair_text(string))
 #print()
 #print("------")
