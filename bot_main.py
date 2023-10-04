@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import pywikibot
-from repair_text2 import repair_text
+from repair_text import repair_text
 
 # המחרוזת שבה אתה מחפש
 search_term = "www.hebrewbooks.org"
@@ -30,7 +30,7 @@ def bot(url:str):
 
                 # Connect to Wikipedia using pywikibot
                 site = pywikibot.Site(url="https://www.hamichlol.org.il/")
-                pywikibot.login(site, 'שלוימי', 'סיסמתך')
+                site.login(site, 'שלוימי בוט', 'סיסמתך')
                 strings = ["[http://www.hebrewbooks.org/", "[http://hebrewbooks.org/"]
                 # Loop through each page title
                 for i in title:
