@@ -46,7 +46,7 @@ def bot(url:str):
                 new_text = repair_text(page_text)
 
                 # Save the updated page
-                page.save(new_text, summary="תיקון בוט היברו בוקס") #הוספתי תקציר עריכה
+                page.save(new_text, summary="המרת קישורי היברובוקס לתבניות") # ותקציר עריכה
 
                 # Disconnect from Wikipedia
 
