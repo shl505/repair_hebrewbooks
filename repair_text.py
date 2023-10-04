@@ -103,7 +103,7 @@ def repair_text(repaired_text: str):
                                 repaired_text = repair_sits[0] + string_repair + caption[0] + "|" + name[0] + "||ללא}}" + caption[1]
 
                 elif string in parts:
-                    if string + "rambam" and string + "root" and string + "shas" and string + "journals" and string + "media/terms.html" and string + "hagada" and string + "dtrambam" and string + "home.aspx" and string + "j" and string + "download" and string + "about" and string + "english" not in parts:
+                    if string + "rambam" and string + "root" and string + "shas" and string + "journals" and string + "media/terms.html" and string + "hagada" and string + "dtrambam" and string + "home.aspx" and string + "j" and string + "download" and string + "about" and string + "english" and string + "about" and string + "media" not in parts:
                         list1 = parts.split(string, 1)
                         parts2 = list1[1].split(" ", 1)
                         list_descript_book = parts2[1].split("]", 1)
