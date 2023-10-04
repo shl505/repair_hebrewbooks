@@ -30,7 +30,7 @@ def bot(url:str):
             if link:
                 # השגת הערך של ה-`title`
                 title = link['title']
-                title = "הגט מקליווא"
+                title = "משתמש:שלוימי/טיוטה"
                 # Connect to Wikipedia using pywikibot
 
 
@@ -46,7 +46,7 @@ def bot(url:str):
                 new_text = repair_text(page_text)
 
                 # Save the updated page
-                page.save(new_text, summary="המרת קישורי היברובוקס לתבניות") # ותקציר עריכה
+                page.save(new_text, summary="ניסוי") #הוספתי תקציר עריכה
 
                 # Disconnect from Wikipedia
 
