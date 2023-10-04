@@ -98,7 +98,7 @@ def repair_text(repaired_text: str):
                                 repaired_text = repair_sits[0] + string_repair + caption[0] + "|" + name[0] + "||ללא}}" + caption[1]
 
                 elif string in parts:
-                    if not string + "rambam" or string + "root" or string + "shas" or string + "journals" or string + "media/terms.html" or string + "hagada" or string + "dtrambam" or string + "home.aspx" or string + "j" or string + "download" or string + "about" or string + "pagefeed/hebrewbooks" in parts:
+                    if not string + "rambam" or string + "root" or string + "shas" or string + "journals" or string + "media/terms.html" or string + "hagada" or string + "dtrambam" or string + "home.aspx" or string + "j" or string + "download" or string + "about" or string + "english" in parts:
                         list1 = parts.split(string, 1)
                         parts2 = list1[1].split(" ", 1)
                         list_descript_book = parts2[1].split("]", 1)
