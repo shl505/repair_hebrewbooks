@@ -1,7 +1,5 @@
 from get_source_pages import get_page_text
 
-
-
 def repair_text(repaired_text: str):
     #הגדרת משתנה שמכיל את הטקסט המקורי
     parts = repaired_text
@@ -9,13 +7,19 @@ def repair_text(repaired_text: str):
     strings = ["[http://www.hebrewbooks.org/", "[http://hebrewbooks.org/"]
     #הגדרת משתנה שמכיל את ראש התבנית
     string_repair = "{{היברובוקס||"
+    #הגדרת לולאה שרצה פעם אחת על כל ראש קישור
     for string in strings:
+        #בדיקה אם יש קישור בערך
         if string and repaired_text.find(string) >= 0:
+            #הגדרת משתנה שסופר כמה קישורים יש בערך
             number = repaired_text.count(string)
-
+            #הגדרת לולאה שרצה כמספר הקישורים שיש בערך
             for i in range(number):
+                #עדכון המשתנה עם הקוד מקור של הערך לקוד מקור המתוקן
                 parts = repaired_text
+                #הגדרת משתנה עם טיפוס הקישור של pagefeed
                 pagefeed = "pagefeed/hebrewbooks"
+                #בדיקה אם יש בערך קישור מטיפוס pagefeed
                 if string + pagefeed in parts:
                     list1 = parts.split(string + pagefeed, 1)
                     repair_pagefeed = list1[1].split("_", 3)
