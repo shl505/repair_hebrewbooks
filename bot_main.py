@@ -8,6 +8,7 @@ from mwclient import page
 # המחרוזת שבה אתה מחפש
 search_term = "hebrewbooks.org"
 
+
 # ה-URL שבו מופיע המידע
 url = f"https://www.hamichlol.org.il/w/index.php?title=%D7%9E%D7%99%D7%95%D7%97%D7%93:%D7%97%D7%99%D7%A4%D7%95%D7%A9_%D7%A7%D7%99%D7%A9%D7%95%D7%A8%D7%99%D7%9D_%D7%97%D7%99%D7%A6%D7%95%D7%A0%D7%99%D7%99%D7%9D&limit=2&offset=0&target={search_term}&namespace=0"
 def bot(url:str):
@@ -45,7 +46,7 @@ def bot(url:str):
                 new_text = repair_text(page_text)
 
                 # Save the updated page
-                page.save(new_text)
+                page.save(new_text, summary="תיקון בוט היברו בוקס") #הוספתי תקציר עריכה
 
                 # Disconnect from Wikipedia
 
