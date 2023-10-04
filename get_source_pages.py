@@ -3,8 +3,11 @@ import pywikibot
 #הגדרת פונקציה
 def get_page_text(page_title):
     """פונקציה שמקבלת שם של דף במכלול ומחזירה את קוד המקור שלו"""
-    site = pywikibot.Site(url="https://www.hamichlol.org.il/") # הגדרת המכלול
-    page = pywikibot.Page(site, title=page_title) #קבלת הדף
+    # הגדרת המכלול
+    site = pywikibot.Site(url="https://www.hamichlol.org.il/")
+    # קבלת הדף
+    page = pywikibot.Page(site, title=page_title)
+    #החזרת קוד המקור
     return page.text
 
-print(get_page_text("תחיל את זה בשם הערך"))
+print(get_page_text("החלף זאת בשם הערך"))
