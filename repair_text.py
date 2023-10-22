@@ -1,4 +1,4 @@
-from get_source_pages import get_page_text
+import pywikibot
 
 def repair_text(repaired_text: str):
     """פונקציה שמקבלת קוד מקור של דף באתר המכלול וחזירה אותו לאחר שהמירה קישורים לאתר היברובוקס לתבניות קישורים"""
@@ -116,7 +116,14 @@ def repair_text(repaired_text: str):
     else:
         return repaired_text
 
-
+def get_page_text(page_title):
+    """פונקציה שמקבלת שם של דף במכלול ומחזירה את קוד המקור שלו"""
+    # הגדרת המכלול
+    site = pywikibot.Site(url="https://www.hamichlol.org.il/")
+    # קבלת הדף
+    page = pywikibot.Page(site, title=page_title)
+    #החזרת קוד המקור
+    return page.text
 
 #page_title = input("הכנס את שם הערך כאן: ")
 
